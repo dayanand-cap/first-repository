@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.16/babel.min.js"></script>
+    
+    <script type="text/babel">
+        // Define a simple React component
+        function Hello() {
+            // var name = 'dayanand gupta';
+            const companyDetails = React.useState();
+            const company = companyDetails[0];
+            const setCompany = companyDetails[1];
+            
+            function handleChange(event) {
+                const textboxValue = event.target.value;
+                console.log('textbox value changed', event, event.target, textboxValue);
+                setCompany(textboxValue);
+            }
+
+            return (
+                <div>
+                    <h1>Hello world!! {company}</h1>
+                    <input type="text" onChange={handleChange} />    
+                </div>
+            );
+        };
+
+        // Render the component to the DOM
+        ReactDOM.render(<Hello />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

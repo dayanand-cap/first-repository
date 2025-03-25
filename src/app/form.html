@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Custom form</title>
+        <meta />
+        <style>
+            .row {
+                padding: 20px;
+            }
+        </style>
+        <script>
+            // const gn = document.getElementsByName;
+            console.log('script executing')
+            
+            function handleClick() {
+                const details = {
+                    interest: []
+                };
+                details.name = document.getElementsByName('name')[0].value;
+                details.city = document.getElementsByName('city')[0].value;
+                details.comment = document.getElementsByName('comment')[0].value;
+                details.password = document.getElementsByName('password')[0].value;
+
+                const allGenders = document.getElementsByName('gender');
+                for (i=0; i<allGenders.length; i++) {
+                    if (allGenders[i].checked) {
+                        details.gender = allGenders[i].value;
+                        break;
+                    }
+                }
+
+                const allInterest = document.getElementsByName('interest');
+                for (i=0; i<allInterest.length; i++) {
+                    if (allInterest[i].checked) {
+                        details.interest.push(allInterest[i].value);
+                    }
+                }
+                
+                console.log('submit form', JSON.stringify(details), details);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- <form> -->
+            <div class="row">
+                Name: 
+                <input type="text" name="name" id="my-name" class="name-class">
+            </div>
+            <div class="row">
+                gender:
+                <input type="radio" name="gender" value="M" />Male
+                <input type="radio" name="gender" value="F" />Female
+            </div>
+            <div class="row">
+                City:
+                <select name="city">
+                    <option value="">--Select--</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="kolkata">Kolkata</option>
+                    <option value="mumbai">Mombai</option>
+                    <option value="chennai">Chennai</option>
+                </select>
+            </div>
+            <div class="row">
+                Interests:
+                <input type="checkbox" name="interest" value="music">Music
+                <input type="checkbox" name="interest" value="reading">Reading
+                <input type="checkbox" name="interest" value="games">Games
+                <input type="checkbox" name="interest" value="social-media">Social Media
+            </div>
+            <div class="row">
+                Additional Comments:
+                <textarea name="comment"></textarea>
+            </div>
+            <div class="row">
+                Password:
+                <input type="password" name="password" />
+            </div>
+            <div class="row">
+                <!-- <button click="handleClick">Submit</button> -->
+                 <input type="button" onclick="handleClick(event)" value="Input submit">
+            </div>
+
+            <button>
+                <div></div>
+                <img src="" alt="">
+            </button>
+            <input type="button" value="dhjshdsj">
+        <!-- </form> -->
+    </body>
+</html>
